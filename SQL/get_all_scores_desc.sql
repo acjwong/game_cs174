@@ -1,6 +1,6 @@
-select firstName, lastName , Scores.Score
-from Players join Player_Scores_Linking join Scores
-where Players.idPlayers = Player_Scores_Linking.idPlayers
-and Scores.idScores = Player_Scores_Linking.idScores
-order by Score DESC
-limit 10;
+SELECT firstName, lastName , Scores.Score
+FROM Players join Player_Scores_Linking join Scores
+WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
+AND Scores.idScores = Player_Scores_Linking.idScores
+ORDER BY Score DESC
+LIMIT 10;
