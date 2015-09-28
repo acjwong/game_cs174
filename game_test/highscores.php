@@ -15,6 +15,21 @@
 				<a href="about.html"><div class="btn">About</div></a>
 			</div>
 		</div>
+		<form action="highscores.php"
+		method="GET">
+		<fieldset>
+			<legend>User input</legend>
+			<p>
+				<label>First name:</label>
+				<input name="firstName" type="text" />
+			</p>
+			<p>
+				<label>Last name:</label>
+				<input name="lastName" type="text" />
+			</p>
+			<input name="Button" type="submit" value="Submit" />
+		</fieldset>
+		</form>
 		<div>
 			<?php include 'db_highscores.php';?>
 		</div>
