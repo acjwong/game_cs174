@@ -23,9 +23,9 @@ function run() {
     }
     print "</tr>\n";
     if($first != "" && $last != "")
-      executeUser($first, $last, $connection);
+      executeUserHighScoresQuery($first, $last, $connection);
     else
-      execute($connection);
+      executeHighScoresQuery($connection);
 
     
   } catch (Exception $e) {
@@ -33,7 +33,7 @@ function run() {
   }
 }
 
-function executeUser($first, $last, $connection) {
+function executeUserHighScoresQuery($first, $last, $connection) {
   $query = "SELECT CONCAT(firstName, ' ', lastName) AS Name, Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
@@ -59,7 +59,7 @@ function executeUser($first, $last, $connection) {
     print "</table>\n";
 }
 
-function execute($connection) {
+function executeHighScoresQuery($connection) {
   $query = "SELECT CONCAT(firstName, ' ', lastName) AS Name, Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
@@ -84,5 +84,4 @@ function execute($connection) {
 }
 
 run();
-
 ?>
