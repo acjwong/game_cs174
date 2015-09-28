@@ -3,7 +3,7 @@
 	<div id="nav" class="about buttons">
 		<a href="index.html"><div class="btn">Home</div></a>
 		<a href="game_screen.html"><div class="btn" onclick="showLevelScreen();">Start</div></a>
-		<a href="highscores.html"><div class="btn">High Scores</div></a>
+		<a href="highscores.php"><div class="btn">High Scores</div></a>
 		<a href="about.html"><div class="btn">About</div></a>
 	</div>
 </div>
