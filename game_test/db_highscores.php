@@ -11,7 +11,7 @@ function run() {
     $connection = new PDO("mysql:host=localhost;dbname=bruteforce", "bruteforce", "password");
     $connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-    $query = "SELECT firstName as First, lastName as Last, Score FROM Players JOIN Scores";
+    $query = "SELECT CONCAT(firstName, ' ', lastName) AS Name, Score FROM Players JOIN Scores";
     
     print "<table border='2'>\n";
     $result = $connection->query($query);
@@ -34,7 +34,7 @@ function run() {
 }
 
 function executeUser($first, $last, $connection) {
-  $query = "SELECT firstName, lastName, Scores.Score
+  $query = "SELECT CONCAT(firstName, ' ', lastName) AS Name, Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
               AND Players.firstName = :first AND Players.lastName = :last
@@ -60,7 +60,7 @@ function executeUser($first, $last, $connection) {
 }
 
 function execute($connection) {
-  $query = "SELECT firstName, lastName, Scores.Score
+  $query = "SELECT CONCAT(firstName, ' ', lastName) AS Name, Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
               AND Scores.idScores = Player_Scores_Linking.idScores

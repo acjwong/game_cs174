@@ -8,6 +8,14 @@ a {
 	text-decoration: none;
 }
 
+table {
+  margin: auto;
+  margin-top: 10px;
+}
+
+canvas{
+  margin-top: 50px;
+}
 .center {
 	margin: auto;
 	border: 1px solid #000000;
