@@ -29,7 +29,7 @@ function run() {
 
     
   } catch (Exception $e) {
-      echo 'ERROR: '.$ex->getMessage();
+      echo 'ERROR: '.$e->getMessage();
   }
 }
 
