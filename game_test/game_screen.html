@@ -2,19 +2,15 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Game | Play</title>
+		<title id="title" pageName="Play">Game | Play</title>
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+		<script> 
+		    $(function(){ $("#includedContent").load("navBar.html"); });
+	    </script> 
 	</head>
 	<body onload="init()">
-		<div id="indexHeader" class="header">
-			<h1>Play</h1>
-			<div id="nav" class="about buttons">
-				<a href="index.html"><div class="btn">Home</div></a>
-				<a href="game_screen.html"><div class="btn" onclick="showLevelScreen();">Play</div></a>
-				<a href="highscores.php"><div class="btn">High Scores</div></a>
-				<a href="about.html"><div class="btn">About</div></a>
-		</div> 
+		<div id="includedContent"></div>
 		<div>
 			<canvas id="canvas" width="500" height="400" class="gamelayer"></canvas>
 			<script src="js/sprite_scripts.js"></script>

@@ -2,19 +2,15 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>Game | High Score</title>
+		<title id="title" pageName="High Scores">Game | High Score</title>
 		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+		<script> 
+		    $(function(){ $("#includedContent").load("navBar.html"); });
+	    </script> 
 	</head>
 	<body>
-		<div id="highScoreHeader" class="header">
-			<h1>High Score</h1>
-			<div id="nav" class="about buttons">
-				<a href="index.html"><div class="btn">Home</div></a>
-				<a href="game_screen.html"><div class="btn" onclick="showLevelScreen();">Play</div></a>
-				<a href="highscores.php"><div class="btn">High Scores</div></a>
-				<a href="about.html"><div class="btn">About</div></a>
-			</div>
-		</div>
+		<div id="includedContent"></div>
 		<form action="highscores.php"
 		method="GET">
 		<fieldset>
