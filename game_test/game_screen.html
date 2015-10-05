@@ -9,11 +9,19 @@
 		    $(function(){ $("#includedContent").load("navBar.html"); });
 	    </script> 
 	</head>
-	<body onload="init()">
-		<div id="includedContent"></div>
-		<div>
-			<canvas id="canvas" width="500" height="400" class="gamelayer"></canvas>
-			<script src="js/sprite_scripts.js"></script>
-		</div>
+	<body>
+	<div id="includedContent"></div>
+	<p style="text-align: center;">
+		Hit Spacebar to start/stop animation.
+	</p>
+    <canvas id="canvas" width="800" height="500" style="border:1px solid #000000;">
+    	Canvas unsupported on current browser.
+    </canvas>
+	
+	<script type="text/javascript" src="js/Object.js"></script>
+	<script type="text/javascript" src="js/DrawableObject.js"></script>
+    <script type="text/javascript" src="js/Player.js"></script>
+    <script type="text/javascript" src="js/ObjectManager.js"></script>
+    <script type="text/javascript" src="js/Main.js"></script>
 	</body>
 </html>
