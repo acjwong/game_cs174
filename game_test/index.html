@@ -6,41 +6,52 @@
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
 		<script> 
-		    $(function(){ $("#includedContent").load("navBar.html"); });
-	    </script> 
+		    $(function(){ $("#includedContent").load("navbar.html"); });
+		    $(function(){ $().load("index.html"); });
+	    </script>
 	</head>
 	<body>
 		<div id="includedContent"></div>
 		<div>
-			<form action="create_user.php">
-				<fieldset>
-					<legend>Create User</legend>
-					First Name: 
-					<input type="text" name="firstname" id="firstname"><br>
-					Last Name: 
-					<input type="text" name="lastname" id="lastname"><br>
-					Gamer Tag:
-					<input type="text" name="newgametag" id="newgametag"><br>
-					Email:
-					<input type="email" name="email" id="email"><br>
-					Password:
-					<input type="password" name="newpassword" id="newpassword"><br>
-					Re-Enter Password:
-					<input type="password" name="newrepassword" id="repassword"><br>
-					<input type="submit" value="Submit"><br>
-				</fieldset>
-			</form>
-		</div>
-		<div>
-			<form action="login_user.php">
-				<fieldset>
-					<legend>Log In</legend>
-					Gamer Tag: <input type="text" name="gamertag" id="gamertag"><br>
-					Password: <input type="password" name="password" id="password"><br>
-					<input type="submit" value="Submit"><br>
+			<div class="tabs">
+    			<ul class="tab-links">
+			        <li class="active"><a href="#tab1">Tab #1</a></li>
+			        <li><a href="#tab2">Tab #2</a></li>
+   				</ul>
+			    <div class="tab-content">
+			        <div id="tab1" class="tab active">
+						<form id= "register" action="create_user.php">
+							<fieldset>
+								<legend >Create User</legend>
+								First Name: 
+								<input type="text" name="firstname" id="firstname"><br>
+								Last Name: 
+								<input type="text" name="lastname" id="lastname"><br>
+								Gamer Tag:
+								<input type="text" name="newgametag" id="newgametag"><br>
+								Email:
+								<input type="email" name="email" id="email"><br>
+								Password:
+								<input type="password" name="newpassword" id="newpassword"><br>
+								Re-Enter Password:
+								<input type="password" name="newrepassword" id="repassword"><br>
+								<input type="submit" value="Submit"><br>
+							</fieldset>
+						</form>
+					</div>
 
-				</fieldset>
-			</form>
-		</div>
+					<div id= "tab2" class="tab">
+					<form action="login_user.php">
+							<fieldset>
+							<legend>Log In</legend>
+							Gamer Tag: <input type="text" name="gamertag" id="gamertag"><br>
+							Password: <input type="password" name="password" id="password"><br>
+							<input type="submit" value="Submit"><br>
+
+						</fieldset>
+					</form>
+					</div>
+				</div>
+			</div>
 	</body>
 </html>

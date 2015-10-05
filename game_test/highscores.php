@@ -11,8 +11,7 @@
 	</head>
 	<body>
 		<div id="includedContent"></div>
-		<form action="highscores.php"
-		method="GET">
+		<form action="highscores.php" method="GET">
 		<fieldset>
 			<legend>User input</legend>
 			<p>
