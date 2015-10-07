@@ -8,21 +8,31 @@
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
-		<script> 
-		    $(function(){ $("#includedContent").load("navbar.html"); });
-		    $(function(){ $().load("index.html"); });
-	    </script>
+
 	</head>
 	<body>
-		<div id="includedContent"></div>
+		<div class="header">
+			<img src="images/logo.png" width="800" height="300" />
+		</div>
 		<div class = "container">
 			<ul class= "nav nav-tabs">
-				<li class ="active"> <a data-toggle="tab" href = "#reg"> Register </a></li>
-				<li> <a data-toggle="tab" href="#login"> Log In </a> </li>
+				<li class="active"> <a data-toggle="tab" href="#login"> Log In </a> </li>
+				<li> <a data-toggle="tab" href = "#reg"> Register </a></li>
 			</ul>
 			<div class = "tab-content">
-				<div id = "reg" class = "tab-pane active">
-					<form action="create_user.php">
+				<div id = "login" class = "tab-pane active">
+					<form action="login_user.php">
+							<fieldset>
+							<legend>Log In</legend>
+							Gamer Tag: <input type="text" name="gamertag" id="gamertag"><br>
+							Password: <input type="password" name="password" id="password"><br>
+							<input type="submit" value="Submit"><br>
+
+						</fieldset>
+					</form>
+				</div>
+				<div id = "reg" class = "tab-pane">
+					<form action="login_user.php">
 							<fieldset>
 								<legend >Create User</legend>
 								First Name: 
@@ -39,17 +49,6 @@
 								<input type="password" name="newrepassword" id="repassword"><br>
 								<input type="submit" value="Submit"><br>
 							</fieldset>
-						</form>
-					</div>
-				<div id = "login" class = "tab-pane">
-					<form action="login_user.php">
-							<fieldset>
-							<legend>Log In</legend>
-							Gamer Tag: <input type="text" name="gamertag" id="gamertag"><br>
-							Password: <input type="password" name="password" id="password"><br>
-							<input type="submit" value="Submit"><br>
-
-						</fieldset>
 					</form>
 				</div>
 			</div>

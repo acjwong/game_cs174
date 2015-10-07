@@ -12,7 +12,7 @@ function Player() {
 		Initializes the player through DrawableObject
 	*/
 	this.InitPlayer = function() {
-    	this.InitDrawableObject(player_idle, 5, 450, 0);
+    	this.InitDrawableObject(player_idle, 5, 250, 0);
     	
     	return this;
    }

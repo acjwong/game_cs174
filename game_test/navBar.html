@@ -1,13 +1,14 @@
-<div id="aboutHeader" class="header">
-	<h1 id="header"></h1>
-	<script type="text/javascript">
-		var pageName = document.getElementById("title").getAttribute("pageName");
-		document.getElementById("header").innerHTML = pageName;
-	</script>
-	<div id="nav" class="about buttons">
-		<a href="index.html"><div class="btn">Home</div></a>
-		<a href="game_screen.html"><div class="btn" onclick="showLevelScreen();">Play</div></a>
-		<a href="highscores.php"><div class="btn">High Scores</div></a>
-		<a href="users.html"><div class="btn">Users</div></a>
+<div class="navbar navbar-fixed-top">
+	<div class="container nav-container">
+		<a class="nav-brand" href="">
+			<img class="logo" src="images/logo.png" width="150">
+		</a>
+		<nav class="nav-menu navmenu" role="navigation">
+			<a id="red-link" class="nav-link navlink" href="index.html">Home</a>
+			<a id="orange-link" class="nav-link navlink" href="game_screen.html">Play</a>
+			<a id="blue-link" class="nav-link navlink" href="highscores.php">High Scores</a>
+			<a id="green-link" class="nav-link navlink" href="users.html">Users</a>
+			<a class="circular icon navlink" href=""><img src="icons/face.png" alt=""></a>
+		</nav>
 	</div>
 </div>

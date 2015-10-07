@@ -33,15 +33,12 @@ legend{
 }
 
 .header {
-  height: 150px;
+  height: 300px;
   display: block;
-  margin-left: 10px;
-  margin-right: 10px;
-  border: solid;
+  margin: 10px;
+  border: 1px solid #BBB;
   border-width: 2pt;
   text-align: center;
-  background-color: Chartreuse;
-  font-family: fantasy;
   font-size: large; 
 }
 
