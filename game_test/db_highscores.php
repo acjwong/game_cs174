@@ -6,8 +6,7 @@ function run() {
     //include (".:db_credentials.php");
 
     //Connect to the database
-    $first = filter_input(INPUT_GET, "firstName");
-    $last  = filter_input(INPUT_GET, "lastName");
+    $gamertag = filter_input(INPUT_GET, "gamertag");
     $connection = new PDO("mysql:host=localhost;dbname=bruteforce", "bruteforce", "password");
     $connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
@@ -34,10 +33,10 @@ function run() {
 }
 
 function executeUserHighScoresQuery($first, $last, $connection) {
-  $query = "SELECT CONCAT(firstName, ' ', lastName) AS Name, Scores.Score
+  $query = "SELECT gamerTag AS GamerTag, Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
-              AND Players.firstName = :first AND Players.lastName = :last
+              AND Players.gamerTag = :gamertag 
               AND Scores.idScores = Player_Scores_Linking.idScores
               ORDER BY Score DESC
               LIMIT 10;";
@@ -60,7 +59,7 @@ function executeUserHighScoresQuery($first, $last, $connection) {
 }
 
 function executeHighScoresQuery($connection) {
-  $query = "SELECT CONCAT(firstName, ' ', lastName) AS Name, Scores.Score
+  $query = "SELECT gamerTag AS GamerTag, Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
               AND Scores.idScores = Player_Scores_Linking.idScores

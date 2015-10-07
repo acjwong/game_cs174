@@ -34,6 +34,7 @@ form {
   width: 100%;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
+  z-index:-1;
 }
 
 input {
@@ -66,6 +67,15 @@ input[type=Submit]:hover {
   color: #ffffff;
 }
 
+#search{
+  margin-right: 200px;
+  float:right;
+}
+
+#highscore_table{
+  width: 500em  ;
+}
+
 .box {
   width: 300px;
   height: auto;
@@ -88,7 +98,6 @@ input[type=Submit]:hover {
   text-align: center;
   font-size: large; 
 }
-
 
 .container{
   margin: 20px auto;

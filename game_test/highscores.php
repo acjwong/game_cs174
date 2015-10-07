@@ -12,21 +12,16 @@
 	</head>
 	<body>
 		<div id="includedContent"></div>
-		<form action="highscores.php" method="GET">
+		<form action="highscores.php" method="GET" id = "search">
 		<fieldset>
-			<legend>User input</legend>
+			<legend>Search by Gamer Tag</legend>
 			<p>
-				<label>First name:</label>
-				<input name="firstName" type="text" />
-			</p>
-			<p>
-				<label>Last name:</label>
-				<input name="lastName" type="text" />
+				<input type="text" name="gamertag" id="gamertag" placeholder="Gamer Tag"/>
 			</p>
 			<input name="Button" type="submit" value="Submit" />
 		</fieldset>
 		</form>
-		<div>
+		<div id = "highscore_table">
 			<?php include 'db_highscores.php';?>
 		</div>
 	</body>
