@@ -3,28 +3,28 @@
 	<head>
 		<meta charset="UTF-8">
 		<title id="title" pageName="Home">Game | Home</title>
-		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
 	</head>
 	<body>
 		<div class="header">
-			<img src="images/logo.png" width="800" height="300" />
+			<img src="images/logo.png" width="600" height="250" />
 		</div>
 		<div class = "container">
-			<ul class= "nav nav-tabs">
+			<ul class= "nav nav-tabs box">
 				<li class="active"> <a data-toggle="tab" href="#login"> Log In </a> </li>
 				<li> <a data-toggle="tab" href = "#reg"> Register </a></li>
 			</ul>
-			<div class = "tab-content">
+			<div class = "tab-content box">
 				<div id = "login" class = "tab-pane active">
 					<form action="login_user.php">
 							<fieldset>
 							<legend>Log In</legend>
-							Gamer Tag: <input type="text" name="gamertag" id="gamertag"><br>
-							Password: <input type="password" name="password" id="password"><br>
+							<input type="text" name="gamertag" id="gamertag" placeholder="Gamer Tag">
+							<input type="password" name="password" id="password" placeholder="Password">
 							<input type="submit" value="Submit"><br>
 
 						</fieldset>
@@ -34,19 +34,13 @@
 					<form action="login_user.php" onsubmit = "return validate(this);">
 							<fieldset>
 								<legend >Create User</legend>
-								First Name: 
-								<input type="text" name="firstname" id="firstname"><br>
-								Last Name: 
-								<input type="text" name="lastname" id="lastname"><br>
-								Gamer Tag:
-								<input type="text" name="newgametag" id="newgametag"><br>
-								Email:
-								<input type="email" name="email" id="email"><br>
-								Password:
-								<input type="password" name="newpassword" id="newpassword"><br>
-								Re-Enter Password:
-								<input type="password" name="newrepassword" id="repassword"><br>
-								<input type="submit" value="Submit"><br>
+								<input type="text" name="firstname" id="firstname" placeholder="First">
+								<input type="text" name="lastname" id="lastname" placeholder="Last">
+								<input type="text" name="newgametag" id="newgametag" placeholder="Gamer Tag">
+								<input type="email" name="email" id="email" placeholder="Email">
+								<input type="password" name="newpassword" id="newpassword" placeholder="Password">
+								<input type="password" name="newrepassword" id="repassword" placeholder="Re-Enter Password">
+								<input type="submit" value="Submit">
 							</fieldset>
 					</form>
 				</div>
