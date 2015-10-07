@@ -9,9 +9,9 @@ Assignment 4
 
 	Assignment Notes 
 		- Use Firefox or Chrome... Safari does not seem to work properly with the form attrabute for required fields.
-		- To access the page for JavaScript drawing and anamation see /game_cs174/game_test/game_screen.html
-		- You can log in with any username or password (This feature has not been implemented yet)
-		- Gamertags are 3 characters
+		- To access the page for JavaScript drawing and anamation see /game_cs174/game_test/game_screen.html. At the this time navigating directly to the page will work, but in the future we hope to block access unless the user is logged in.
+		- You can log in with any username or password (This is because we have not implemented user login, we have only implemented input validation)
+		- Gamer Tags are 3 characters
 		- Passwords are between 5-10 characters
 
 	SQL:
@@ -36,8 +36,6 @@ Assignment 4
 		-Screen Shot 2015-10-07 at 1.32.44 PM.png : Screen showing Play screen with JavaScript drawing on canvas
 		-Screen Shot 2015-10-07 at 1.32.53 PM.png : Screen showing Play screen with JavaScript anamation 
 		
-		
-
 ##Past Assignments##
 
 Assignment 3
