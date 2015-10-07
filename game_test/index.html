@@ -20,17 +20,17 @@
 			</ul>
 			<div class = "tab-content box">
 				<div id = "login" class = "tab-pane active">
-					<form action="login_user.php">
+					<form action="home.php">
 							<fieldset>
 							<legend>Log In</legend>
-							<input type="text" name="gamertag" id="gamertag" placeholder="Gamer Tag" required> <!-- Add js and php to validate against db -->
-							<input type="password" name="password" id="password" placeholder="Password" required> <!-- Add js and php to validate against db -->
+							<input type="text" name="gamertag" id="gamertag" placeholder="Gamer Tag" pattern="^.{3}$" required> <!-- Add js and php to validate against db -->
+							<input type="password" name="password" id="password" placeholder="Password" pattern="^.{5,10}$" required> <!-- Add js and php to validate against db -->
 							<input type="submit" value="Submit"><br>
 						</fieldset>
 					</form>
 				</div>
 				<div id = "reg" class = "tab-pane">
-					<form action="login_user.php" onsubmit = "return validate(this);">
+					<form action="home.php" onsubmit = "return validate(this);">
 							<fieldset>
 								<legend >Create User</legend>
 								<input type="text" name="firstname" id="firstname" placeholder="First" required>
