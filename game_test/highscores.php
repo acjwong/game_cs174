@@ -16,7 +16,7 @@
 		<fieldset>
 			<legend>Search by Gamer Tag</legend>
 			<p>
-				<input type="text" name="gamertag" id="gamertag" placeholder="Gamer Tag">
+				<input type="text" name="gamertag" id="gamertag" placeholder="Gamer Tag"/>
 			</p>
 			<input name="Button" type="submit" value="Submit" />
 		</fieldset>
