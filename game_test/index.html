@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<title id="title" pageName="Home">Game | Home</title>
 		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
 		<script> 
 		    $(function(){ $("#includedContent").load("navbar.html"); });
@@ -12,15 +15,14 @@
 	</head>
 	<body>
 		<div id="includedContent"></div>
-		<div>
-			<div class="tabs">
-    			<ul class="tab-links">
-			        <li class="active"><a href="#tab1">Tab #1</a></li>
-			        <li><a href="#tab2">Tab #2</a></li>
-   				</ul>
-			    <div class="tab-content">
-			        <div id="tab1" class="tab active">
-						<form id= "register" action="create_user.php">
+		<div class = "container">
+			<ul class= "nav nav-tabs">
+				<li class ="active"> <a data-toggle="tab" href = "#reg"> Register </a></li>
+				<li> <a data-toggle="tab" href="#login"> Log In </a> </li>
+			</ul>
+			<div class = "tab-content">
+				<div id = "reg" class = "tab-pane active">
+					<form action="create_user.php">
 							<fieldset>
 								<legend >Create User</legend>
 								First Name: 
@@ -39,8 +41,7 @@
 							</fieldset>
 						</form>
 					</div>
-
-					<div id= "tab2" class="tab">
+				<div id = "login" class = "tab-pane">
 					<form action="login_user.php">
 							<fieldset>
 							<legend>Log In</legend>
@@ -50,8 +51,8 @@
 
 						</fieldset>
 					</form>
-					</div>
 				</div>
 			</div>
+		</div>
 	</body>
 </html>
