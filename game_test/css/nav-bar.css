@@ -115,6 +115,19 @@ nav {
     color: #0ab243;
 }
 
+#purple-link {
+    -webkit-transition: -webkit-transform 500ms ease, color 500ms ease;
+    transition: transform 500ms ease, color 500ms ease;
+    color: #565656;
+}
+
+#purple-link:hover {
+    -webkit-transform: translate(0px, -5px);
+    -ms-transform: translate(0px, -5px);
+    transform: translate(0px, -5px);
+    color: #BF3EFF;
+}
+
 .icon img {
     width: 45px;
     height: 45px;

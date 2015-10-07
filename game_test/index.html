@@ -8,7 +8,6 @@
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
-
 	</head>
 	<body>
 		<div class="header">
@@ -32,7 +31,7 @@
 					</form>
 				</div>
 				<div id = "reg" class = "tab-pane">
-					<form action="login_user.php">
+					<form action="login_user.php" onsubmit = "return validate(this);">
 							<fieldset>
 								<legend >Create User</legend>
 								First Name: 
@@ -53,5 +52,21 @@
 				</div>
 			</div>
 		</div>
+		<script>
+			function validate(form) {
+
+			    // validation code here ...
+			    valid = confirm('Do you really want to submit the form?');
+
+			    if(!valid) {
+			        alert('Please correct the errors in the form!');
+			        return false;
+			    }
+			    else {
+			    	alert('Account Created!');
+			        return valid;
+			    }
+			}
+		</script>
 	</body>
 </html>
