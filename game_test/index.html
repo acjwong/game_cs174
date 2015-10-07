@@ -23,10 +23,9 @@
 					<form action="login_user.php">
 							<fieldset>
 							<legend>Log In</legend>
-							<input type="text" name="gamertag" id="gamertag" placeholder="Gamer Tag">
-							<input type="password" name="password" id="password" placeholder="Password">
+							<input type="text" name="gamertag" id="gamertag" placeholder="Gamer Tag" required> <!-- Add js and php to validate against db -->
+							<input type="password" name="password" id="password" placeholder="Password" required> <!-- Add js and php to validate against db -->
 							<input type="submit" value="Submit"><br>
-
 						</fieldset>
 					</form>
 				</div>
@@ -34,13 +33,12 @@
 					<form action="login_user.php" onsubmit = "return validate(this);">
 							<fieldset>
 								<legend >Create User</legend>
-								<input type="text" name="firstname" id="firstname" placeholder="First">
-								<input type="text" name="lastname" id="lastname" placeholder="Last">
-								<input type="text" name="newgametag" id="newgametag" placeholder="Gamer Tag">
-								<input type="email" name="email" id="email" placeholder="Email">
-								<input type="password" name="newpassword" id="newpassword" placeholder="Password">
-								<input type="password" name="newrepassword" id="repassword" placeholder="Re-Enter Password">
-								<input type="submit" value="Submit">
+								<input type="text" name="firstname" id="firstname" placeholder="First" required>
+								<input type="text" name="lastname" id="lastname" placeholder="Last" required>
+								<input type="text" name="newgametag" id="newgametag" placeholder="Gamer Tag" required>
+								<input type="email" name="email" id="email" placeholder="Email" required>
+								<input type="password" name="newpassword" id="newpassword" placeholder="Password" required>
+								<input type="submit" value="Submit" required>
 							</fieldset>
 					</form>
 				</div>
@@ -50,13 +48,37 @@
 			function validate(form) {
 
 			    // validation code here ...
-			    valid = confirm('Do you really want to submit the form?');
+			    var alertMessage = "";
+			    var valid = true;
 
+			    emailRE = /^.+@.+\..{2,4}$/;
+			    gamertagRE = /^.{3}$/;
+			    nameRE = /^[a-zA-Z]+$/;
+			    passwordRE = /^.{5,10}$/;
+			    
+			    if(!form.firstname.value.match(nameRE) || !form.lastname.value.match(nameRE))
+			    {
+			    	alertMessage += "\nNames are alpha characters only";
+			    	valid = false;
+			    }
+			    if(!form.newgametag.value.match(gamertagRE))
+			    {
+			    	alertMessage += "\nInvalid gamer tag: must be 3 characters";
+			    	valid = false;
+			    }
+			    if(!form.newpassword.value.match(passwordRE))
+			    {
+			    	alertMessage += "\nInvalid password: must be 5-10 characters";
+			    	valid = false;	
+			    }
+			    
 			    if(!valid) {
-			        alert('Please correct the errors in the form!');
+			        alert('Please correct the errors in the form!\n' + alertMessage);
 			        return false;
 			    }
 			    else {
+			    	alert('DB not changed')
+			    	// Call php to submit form to db
 			    	alert('Account Created!');
 			        return valid;
 			    }
