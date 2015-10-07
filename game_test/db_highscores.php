@@ -1,4 +1,4 @@
-  
+
 <?php
 function run() {
   try {
@@ -33,18 +33,17 @@ function run() {
 }
 
 function executeUserHighScoresQuery($gamertag, $connection) {
-  $query = "SELECT gamerTag AS GamerTag, Scores.Score 
+  $query = "SELECT gamerTag AS 'Gamer Tag', Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
-              AND Players.gamerTag = ':gamertag' 
+              AND Players.gamerTag = :gamertag
               AND Scores.idScores = Player_Scores_Linking.idScores
               ORDER BY Score DESC
               LIMIT 10;";
 
     $ps = $connection->prepare($query);
     $ps->execute(array(':gamertag' => $gamertag));
-
-    print $query;
+    
     //$data = $connection->query($query);
     //$data->setFetchMode(PDO::FETCH_ASSOC);
     $data = $ps->fetchAll(PDO::FETCH_ASSOC);
@@ -83,4 +82,4 @@ function executeHighScoresQuery($connection) {
 }
 
 run();
-
+?>
