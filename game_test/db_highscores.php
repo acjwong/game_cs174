@@ -10,7 +10,7 @@ function run() {
     $connection = new PDO("mysql:host=localhost;dbname=bruteforce", "bruteforce", "password");
     $connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-    $query = "SELECT CONCAT(firstName, ' ', lastName) AS Name, Score FROM Players JOIN Scores";
+    $query = "SELECT gamerTag AS 'Gamer Tag', Score FROM Players JOIN Scores";
     
     print "<table border='2'>\n";
     $result = $connection->query($query);
@@ -33,10 +33,10 @@ function run() {
 }
 
 function executeUserHighScoresQuery($first, $last, $connection) {
-  $query = "SELECT gamerTag AS GamerTag, Scores.Score
+  $query = "SELECT gamerTag AS 'Gamer Tag', Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
-              AND Players.gamerTag = :gamertag 
+              AND Players.gamerTag = ':gamertag' 
               AND Scores.idScores = Player_Scores_Linking.idScores
               ORDER BY Score DESC
               LIMIT 10;";
@@ -44,7 +44,7 @@ function executeUserHighScoresQuery($first, $last, $connection) {
     $ps = $connection->prepare($query);
     $ps->execute(array(':first' => $first, ':last' => $last));
 
-    // print $query;
+    print $query;
     //$data = $connection->query($query);
     //$data->setFetchMode(PDO::FETCH_ASSOC);
     $data = $ps->fetchAll(PDO::FETCH_ASSOC);
@@ -59,7 +59,7 @@ function executeUserHighScoresQuery($first, $last, $connection) {
 }
 
 function executeHighScoresQuery($connection) {
-  $query = "SELECT gamerTag AS GamerTag, Scores.Score
+  $query = "SELECT gamerTag AS 'Gamer Tag', Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
               AND Scores.idScores = Player_Scores_Linking.idScores
@@ -68,7 +68,7 @@ function executeHighScoresQuery($connection) {
 
     $ps = $connection->prepare($query);
     $ps->execute();
-    // print $query;
+    //print $query;
     //$data = $connection->query($query);
     //$data->setFetchMode(PDO::FETCH_ASSOC);
     $data = $ps->fetchAll(PDO::FETCH_ASSOC);

@@ -16,7 +16,7 @@
 		<fieldset>
 			<legend>Search by Gamer Tag</legend>
 				<input type="text" name="gamertag" id="gamertag" placeholder="Gamer Tag"/>
-			<input name="Button" type="submit" value="Submit" />
+			<input type="submit" value="Submit" />
 		</fieldset>
 		</form>
 		<div id = "highscore_table">
