@@ -34,7 +34,6 @@ form {
   width: 100%;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
-  z-index:-1;
 }
 
 input {
@@ -98,7 +97,9 @@ input[type=Submit]:hover {
   text-align: center;
   font-size: large; 
 }
-
+.navbar{
+  z-index: 1000;
+}
 .container{
   margin: 20px auto;
 }
