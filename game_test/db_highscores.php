@@ -10,7 +10,7 @@ function run() {
     $connection = new PDO("mysql:host=localhost;dbname=bruteforce", "bruteforce", "password");
     $connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-    $query = "SELECT CONCAT(firstName, ' ', lastName) AS Name, Score FROM Players JOIN Scores";
+    $query = "SELECT gamerTag AS 'Gamer Tag', Score FROM Players JOIN Scores";
     
     print "<table border='2'>\n";
     $result = $connection->query($query);
@@ -21,8 +21,8 @@ function run() {
         print "<th>$field</th>\n";
     }
     print "</tr>\n";
-    if($first != "" && $last != "")
-      executeUserHighScoresQuery($first, $last, $connection);
+    if($gamertag != "")
+      executeUserHighScoresQuery($gamertag, $connection);
     else
       executeHighScoresQuery($connection);
 
@@ -32,7 +32,7 @@ function run() {
   }
 }
 
-function executeUserHighScoresQuery($first, $last, $connection) {
+function executeUserHighScoresQuery($gamertag, $connection) {
   $query = "SELECT gamerTag AS GamerTag, Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
@@ -42,7 +42,7 @@ function executeUserHighScoresQuery($first, $last, $connection) {
               LIMIT 10;";
 
     $ps = $connection->prepare($query);
-    $ps->execute(array(':first' => $first, ':last' => $last));
+    $ps->execute(array(':gamertag' => $gamertag));
 
     // print $query;
     //$data = $connection->query($query);

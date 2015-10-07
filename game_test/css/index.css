@@ -72,7 +72,8 @@ input[type=Submit]:hover {
 }
 
 #highscore_table{
-  width: 500em  ;
+  margin-left: 200px;
+  width: 300px;
 }
 
 .box {
