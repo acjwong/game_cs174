@@ -1,5 +1,20 @@
 
 <?php
+class Players {
+  //private $id;
+  private $first;
+  private $last;
+  private $Gamer_Tag;
+  private $Score;
+  //private $email;
+
+  public function getId() {return $this->id;}
+  public function getFirst() {return $this->first;}
+  public function getLast() {return $this->last;}
+  public function getGamerTag() {return $this->Gamer_Tag;}
+  public function getScore() {return $this->Score;}
+  public function getEmail() {return $this->email;}
+}
 function run() {
   try {
     //TODO: Move database credentials to a seperate file and include that file here
@@ -10,7 +25,7 @@ function run() {
     $connection = new PDO("mysql:host=localhost;dbname=bruteforce", "bruteforce", "password");
     $connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-    $query = "SELECT gamerTag AS 'Gamer Tag', Score FROM Players JOIN Scores";
+    $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Score FROM Players JOIN Scores";
     
     print "<table border='2'>\n";
     $result = $connection->query($query);
@@ -33,7 +48,7 @@ function run() {
 }
 
 function executeUserHighScoresQuery($gamertag, $connection) {
-  $query = "SELECT gamerTag AS 'Gamer Tag', Scores.Score
+  $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
               AND Players.gamerTag = :gamertag
@@ -42,23 +57,36 @@ function executeUserHighScoresQuery($gamertag, $connection) {
               LIMIT 10;";
 
     $ps = $connection->prepare($query);
-    $ps->execute(array(':gamertag' => $gamertag));
+    $ps->bindParam(':gamertag', $gamertag);
+    $ps->execute();
+    $ps->setFetchMode(PDO::FETCH_CLASS, "Players");
     
     //$data = $connection->query($query);
     //$data->setFetchMode(PDO::FETCH_ASSOC);
-    $data = $ps->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($data as $row) {
+    //$data = $ps->fetchAll(PDO::FETCH_ASSOC);
+   // var_dump($ps->fetch());
+    while ($players = $ps->fetch()) { 
+      print "        <tr>\n";
+      print "            <td>" . $players->getFirst()     . "</td>\n";
+      print "            <td>" . $players->getLast()     . "</td>\n";
+      print "            <td>" . $players->getGamerTag()     . "</td>\n";
+      print "            <td>" . $players->getScore()     . "</td>\n";
+    }
+    print "        </tr>\n";
+
+    print "    </table>\n";   
+    /*foreach ($data as $row) {
         print "<tr>\n";
         foreach ($row as $name => $value) {
             print "<td>$value</td>\n";
         }
         print "</tr>\n";
     }
-    print "</table>\n";
+    print "</table>\n";*/
 }
 
 function executeHighScoresQuery($connection) {
-  $query = "SELECT gamerTag AS 'Gamer Tag', Scores.Score
+  $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Scores.Score
               FROM Players join Player_Scores_Linking join Scores
               WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
               AND Scores.idScores = Player_Scores_Linking.idScores
