@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/index.css">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  		<link rel="stylesheet" type="text/css" href="jquery-ui-1.11.4.custom/jquery-ui.css">
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
 	</head>
 	<body>
@@ -44,6 +45,11 @@
 				</div>
 			</div>
 		</div>
+		<div id="dialog" title="Welcome">
+			<p>Welcome! Thank you for visiting our site. Enjoy being annoyed by this pop up!</p>
+		</div>
+		<script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
+		<script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
 		<script>
 			function validate(form) {
 
@@ -83,6 +89,32 @@
 			        return valid;
 			    }
 			}
+		</script>
+		<script>
+			$( "#dialog" ).dialog({
+				autoOpen: true,
+				width: 400,
+				buttons: [
+					{
+						text: "Ok",
+						click: function() {
+							$( this ).dialog( "close" );
+						}
+					},
+					{
+						text: "Cancel",
+						click: function() {
+							$( this ).dialog( "close" );
+						}
+					}
+				]
+			});
+
+			// Link to open the dialog
+			$( "#dialog-link" ).click(function( event ) {
+				$( "#dialog" ).dialog( "open" );
+				event.preventDefault();
+			});
 		</script>
 	</body>
 </html>

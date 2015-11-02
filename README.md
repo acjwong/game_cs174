@@ -5,13 +5,19 @@ Bruteforce
 All SQL scripts are located under game_cs174/SQL/
 All screen shots are located under game_cs174/Assignment_3_Screen_Shots/
 
+Assignment 6
+	Assignment Notes
+		- Same as Assignment 5
+		- Popup screen that annoys user will appear on login page
+		- Go to the Game screen and you will see the jquery theme widgets used
+
 Assignment 5
 
 	Assignment Notes
-		Same as Assignment 4
+		- Same as Assignment 4
 
 	Instructions
-		Go to High scores page and look at db_highscores.php (uses ORM)
+		- Go to High scores page and look at db_highscores.php (uses ORM)
 
 Assignment 4
 
