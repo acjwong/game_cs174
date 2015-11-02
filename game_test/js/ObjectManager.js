@@ -22,6 +22,7 @@ function ObjectManager() {
 
         // initialize keyboard input (key up/down)
         document.onkeydown = function(event) {
+            event.preventDefault();
             objectManager.keyDown(event);
         }
 
