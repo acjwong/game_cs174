@@ -1,29 +1,18 @@
 
 <?php
-class Players {
-  //private $id;
-  private $first;
-  private $last;
-  private $Gamer_Tag;
-  private $Score;
-  //private $email;
+include "class_players.php";
 
-  public function getId() {return $this->id;}
-  public function getFirst() {return $this->first;}
-  public function getLast() {return $this->last;}
-  public function getGamerTag() {return $this->Gamer_Tag;}
-  public function getScore() {return $this->Score;}
-  public function getEmail() {return $this->email;}
-}
 function run() {
   try {
     //TODO: Move database credentials to a seperate file and include that file here
     //include (".:db_credentials.php");
 
     //Connect to the database
-    $gamertag = filter_input(INPUT_GET, "gamertag");
+    
     $connection = new PDO("mysql:host=localhost;dbname=bruteforce", "bruteforce", "password");
     $connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    
+    $gamertag = filter_input(INPUT_GET, "gamertag");
     
     $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Score FROM Players JOIN Scores";
     
@@ -61,10 +50,7 @@ function executeUserHighScoresQuery($gamertag, $connection) {
     $ps->execute();
     $ps->setFetchMode(PDO::FETCH_CLASS, "Players");
     
-    //$data = $connection->query($query);
-    //$data->setFetchMode(PDO::FETCH_ASSOC);
-    //$data = $ps->fetchAll(PDO::FETCH_ASSOC);
-   // var_dump($ps->fetch());
+    
     while ($players = $ps->fetch()) { 
       print "        <tr>\n";
       print "            <td>" . $players->getFirst()     . "</td>\n";
@@ -75,14 +61,6 @@ function executeUserHighScoresQuery($gamertag, $connection) {
     print "        </tr>\n";
 
     print "    </table>\n";   
-    /*foreach ($data as $row) {
-        print "<tr>\n";
-        foreach ($row as $name => $value) {
-            print "<td>$value</td>\n";
-        }
-        print "</tr>\n";
-    }
-    print "</table>\n";*/
 }
 
 function executeHighScoresQuery($connection) {
@@ -95,9 +73,7 @@ function executeHighScoresQuery($connection) {
 
     $ps = $connection->prepare($query);
     $ps->execute();
-    //print $query;
-    //$data = $connection->query($query);
-    //$data->setFetchMode(PDO::FETCH_ASSOC);
+    
     $data = $ps->fetchAll(PDO::FETCH_ASSOC);
     foreach ($data as $row) {
         print "<tr>\n";
