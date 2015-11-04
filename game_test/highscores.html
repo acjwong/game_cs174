@@ -7,20 +7,31 @@
 		<link rel="stylesheet" type="text/css" href="css/nav-bar.css">
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
 		<script> 
-		    $(function(){ $("#includedContent").load("navBar.html"); });
+				$(init);
+		 		function init()
+		    	{
+		    	  $("#includedContent").load("navBar.html"); 
+		    	  $("#highscore_table").load("db_highscores.php");
+		    	  //$("#search").submit(s);
+		    	}
+		    	
+		    	// function s(event, ui)
+		    	// {
+		    	// 	gamertag = $("#gamertag").val();
+		    	// 	window.alert(gamertag);
+		    	// 	$("highscore_table").load("db_highscores.php", {"gamertag": gamertag});
+		    	// }
 	    </script> 
 	</head>
 	<body>
 		<div id="includedContent"></div>
-		<form action="highscores.php" method="GET" id = "search">
+		<form method="GET" id = "search">
 		<fieldset>
 			<legend>Search by Gamer Tag</legend>
 				<input type="text" name="gamertag" id="gamertag" placeholder="Gamer Tag"/>
 			<input type="submit" value="Submit" />
 		</fieldset>
 		</form>
-		<div id = "highscore_table">
-			<?php include 'db_highscores.php';?>
-		</div>
+		<div id = "highscore_table"></div>
 	</body>
 </html>
