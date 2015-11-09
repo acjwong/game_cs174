@@ -12,7 +12,7 @@ function run() {
     $connection = new PDO("mysql:host=localhost;dbname=bruteforce", "bruteforce", "password");
     $connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     
-    $gamertag = filter_input(INPUT_GET, "gamertag");
+    $gamertag = filter_input(INPUT_POST, "gamertag");
     
     $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Score FROM Players JOIN Scores";
     
