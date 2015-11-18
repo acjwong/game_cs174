@@ -32,12 +32,12 @@
 					</form>
 				</div>
 				<div id = "reg" class = "tab-pane">
-					<form id = "register" action="db_insert_new_user.php" onsubmit = "return validate(this);">
+					<form id = "register" onsubmit = "return validate(this);">
 							<fieldset>
 								<legend >Create User</legend>
 								<input type="text" name="firstname" id="firstname" placeholder="First" required>
 								<input type="text" name="lastname" id="lastname" placeholder="Last" required>
-								<input type="text" name="newgametag" id="newgametag" placeholder="Gamer Tag" required>
+								<input type="text" name="newgamertag" id="newgamertag" placeholder="Gamer Tag" required>
 								<input type="email" name="email" id="email" placeholder="Email" required>
 								<input type="password" name="newpassword" id="newpassword" placeholder="Password" required>
 								<input type="submit" value="Submit" >
@@ -68,7 +68,7 @@
 			    	alertMessage += "\nNames are alpha characters only";
 			    	valid = false;
 			    }
-			    if(!form.newgametag.value.match(gamertagRE))
+			    if(!form.newgamertag.value.match(gamertagRE))
 			    {
 			    	alertMessage += "\nInvalid gamer tag: must be 3 characters";
 			    	valid = false;
