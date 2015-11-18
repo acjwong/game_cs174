@@ -22,7 +22,7 @@ function run() {
 
     print "<tr>\n";
     foreach($row as $field => $value){
-/        print "<th>$field</th>\n";
+        print "<th>$field</th>\n";
     }
     print "</tr>\n";
     if($gamertag != "")

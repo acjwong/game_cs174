@@ -7,21 +7,25 @@ function login()
 		$connection = new PDO("mysql:host=localhost;dbname=bruteforce", "bruteforce", "password");
 	    $connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-		$username = filter_input(INPUT_POST, "gamertag");
+		$gamertag = filter_input(INPUT_POST, "gamertag");
 		$password = filter_input(INPUT_POST, "password");
 
 		$query = "SELECT Players.password 
 				  FROM Players 
-				  WHERE Players.gamertag = :username";
+				  WHERE Players.gamertag = :gamertag";
 
 	    $ps = $connection->prepare($query);
-	    $ps->bindParam(':username', $username);
+	    $ps->bindParam(':gamertag', $gamertag);
 		$ps->execute();
    		$ps->setFetchMode(PDO::FETCH_CLASS, "Players");
    		$players = $ps -> fetch();
 
    		if ($password === ($players-> getPassword()))
    		{
+   			if (!isset($_COOKIE['gamertag']))
+   			{
+   				setCookie('gamertag', $gamertag);
+   			}
    			echo 'true';
    		}
 
@@ -31,3 +35,4 @@ function login()
 }
 
 login();
+?>

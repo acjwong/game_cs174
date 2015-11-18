@@ -11,6 +11,12 @@
 	    </script> 
 	</head>
 	<body>
+		<?php
+			if (!isset($_COOKIE['gamertag']))
+			{
+				header('Location: index.html');
+			}
+		?>
 		<div id="includedContent"></div>
 	</body>
 </html>
