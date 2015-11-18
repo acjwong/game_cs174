@@ -32,7 +32,7 @@
 					</form>
 				</div>
 				<div id = "reg" class = "tab-pane">
-					<form action="db_insert_new_user.php" onsubmit = "return validate(this);">
+					<form id = "register" action="db_insert_new_user.php" onsubmit = "return validate(this);">
 							<fieldset>
 								<legend >Create User</legend>
 								<input type="text" name="firstname" id="firstname" placeholder="First" required>
@@ -84,17 +84,38 @@
 			        return false;
 			    }
 			    else {
-			    	alert('DB not changed')
-			    	// Call php to submit form to db
-			    	alert('Account Created!');
-			        return valid;
+			    	var firstname = $("#firstname").val();
+			    	var lastname = $("#lastname").val();
+			    	var gamertag = $("#newgamertag").val();
+			    	var email = $("#email").val();
+			    	var password = $("#newpassword").val();
+			    	ajax.post('db_insert_new_user.php', 
+			    		{'firstname': firstname, 
+			    		 'lastname': lastname,
+			    		 'gamertag': gamertag,
+			    		 'email': email,
+			    		 'password': password
+			    		}, function (response)
+			    		{
+			    			console.log(response);
+			    			if (response == 'true')
+			    			{
+			    				location.href = 'home.php';
+			    			}
+			    			else 
+			    			{
+			    				alert('User Already Exist');
+			    				document.getElementById('register').reset();
+			    			}
+			    		}, true);
+			        return false;
 			    }
 			}
 		</script>
 		<script>
 			function ifValidLogin(){
-				gamertag = $("#gamertag").val();
-				password = $("#password").val();
+				var gamertag = $("#gamertag").val();
+				var password = $("#password").val();
 				ajax.post('db_login.php', {'gamertag': gamertag, 'password': password}, 
 					function(response){
 						if (response == 'true')
