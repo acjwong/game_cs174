@@ -6,6 +6,7 @@
 		private $Gamer_Tag;
 		private $Score;
 		private $email;
+		private $password;
 
 		public function getId() {return $this->id;}
 		public function getFirst() {return $this->first;}
@@ -13,6 +14,7 @@
 		public function getGamerTag() {return $this->Gamer_Tag;}
 		public function getScore() {return $this->Score;}
 		public function getEmail() {return $this->email;}
+		public function getPassword() {return $this->password;}
 
 		public function setId($newID) {$this->id=$newID;}
 		public function setFirst($firstName) {$this->first=$firstName;}

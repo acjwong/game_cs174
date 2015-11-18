@@ -22,14 +22,13 @@ function run() {
 
     print "<tr>\n";
     foreach($row as $field => $value){
-        print "<th>$field</th>\n";
+/        print "<th>$field</th>\n";
     }
     print "</tr>\n";
     if($gamertag != "")
       executeUserHighScoresQuery($gamertag, $connection);
     else
       executeHighScoresQuery($connection);
-
     
   } catch (Exception $e) {
       echo 'ERROR: '.$e->getMessage();
