@@ -37,10 +37,9 @@ function run() {
 
 function executeUserHighScoresQuery($gamertag, $connection) {
   $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Scores.Score
-              FROM Players join Player_Scores_Linking join Scores
-              WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
+              FROM Players join Scores
+              WHERE Players.idPlayers = Scores.idPlayer
               AND Players.gamerTag = :gamertag
-              AND Scores.idScores = Player_Scores_Linking.idScores
               ORDER BY Score DESC
               LIMIT 10;";
 
@@ -64,9 +63,8 @@ function executeUserHighScoresQuery($gamertag, $connection) {
 
 function executeHighScoresQuery($connection) {
   $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Scores.Score
-              FROM Players join Player_Scores_Linking join Scores
-              WHERE Players.idPlayers = Player_Scores_Linking.idPlayers
-              AND Scores.idScores = Player_Scores_Linking.idScores
+              FROM Players join Scores
+              WHERE Players.idPlayers = Scores.idPlayer
               ORDER BY Score DESC
               LIMIT 10;";
 
