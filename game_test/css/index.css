@@ -90,9 +90,10 @@ input[type=Submit]:hover {
 }
 
 .header {
-  height: 200px;
+  height: 150px;
   display: block;
   margin: 10px;
+  padding-top: 15px;
   border: 1px solid #BBB;
   border-width: 2pt;
   text-align: center;

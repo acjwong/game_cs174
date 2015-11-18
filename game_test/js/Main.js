@@ -12,7 +12,7 @@ var frameTime = 0.05; // 50 frames per second
 var objectManager = null;
 
 var player_idle = new Image();
-player_idle.src = "sprites/zero_idle.png";
+player_idle.src = "sprites/character-idle.png";
 
 /**
 	Loads up game on page startup
