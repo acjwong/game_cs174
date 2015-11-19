@@ -1,6 +1,6 @@
 canvas {
-	display:block;
-	margin: auto;
+	display:block !important;
+	margin: auto !important;
 	border:1px solid #000000;
 }
 
@@ -66,14 +66,22 @@ input[type=Submit]:hover {
   color: #ffffff;
 }
 
-#search{
-  margin-right: 200px;
-  float:right;
+#footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 8px;
+    background-color: #efefef;
+    border-top: 1px solid #ff4524; 
+    text-align: center;
+    z-index: 1;
 }
 
-#highscore_table{
-  margin-left: 200px;
-  width: 300px;
+#search{
+  margin-top: 10%;
+  margin-right: 15%;
+  float: right;
 }
 
 .box {
@@ -104,4 +112,8 @@ input[type=Submit]:hover {
 }
 .container{
   margin: 20px auto;
+}
+
+.bottom {
+        margin-bottom: 200px;
 }
