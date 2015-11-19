@@ -1,3 +1,9 @@
+<?php
+	if (!isset($_COOKIE['gamertag']))
+	{
+		header('Location: index.html');
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -17,12 +23,6 @@
 	    </style>
 	</head>
 	<body>
-		<?php
-			if (!isset($_COOKIE['gamertag']))
-			{
-				header('Location: index.html');
-			}
-		?>
 	<div id="includedContent"></div>
 	<!-- Progressbar -->
 	<h2 class="demoHeaders">Progressbar</h2>
