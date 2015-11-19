@@ -37,6 +37,14 @@
 			.slider div{
 			margin-right:5px;
 			}
+			a {
+				text-decoration: none;
+				color: #0a3a51;
+			}
+			a:hover {
+				text-decoration: none;
+				color: #8a0707;
+			}
 		</style> 
 	</head>
 	<body>

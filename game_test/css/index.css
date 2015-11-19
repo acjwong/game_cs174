@@ -4,8 +4,14 @@ canvas {
 	border:1px solid #000000;
 }
 
-a {
+div > a {
 	text-decoration: none;
+  color: #8a0707;
+}
+
+div > a:hover {
+  text-decoration: none;
+  color: #0a3a51;
 }
 
 table {
@@ -34,6 +40,7 @@ form {
   width: 100%;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
+  color: #8a0707;
 }
 
 input {
@@ -50,7 +57,8 @@ input {
 }
 
 input[type=Submit] {
-  background: #33b5e5;
+  /*background: #33b5e5;*/
+  background: #0a3a51;
   width: 100%;
   border: 0;
   padding: 10px 15px;
@@ -62,7 +70,8 @@ input[type=Submit] {
 }
 
 input[type=Submit]:hover {
-  background: #2ea3ce;
+  /*background: #2ea3ce;*/
+  background: #8a0707;
   color: #ffffff;
 }
 

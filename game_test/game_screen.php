@@ -11,7 +11,6 @@
 		<title id="title" pageName="Play">Game | Play</title>
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 		<link rel="stylesheet" type="text/css" href="css/nav-bar.css">
-		<link rel="stylesheet" type="text/css" href="jquery-ui-1.11.4.custom/jquery-ui.css">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
 		<script> 
@@ -29,26 +28,6 @@
     <canvas id="canvas" width="900" height="300" style="border:1px solid #000000;">
     	Canvas unsupported on current browser.
     </canvas>
-
-	<!-- Tabs -->
-	<h2 class="demoHeaders">Game Manual</h2>
-	<div class="bottom" id="tabs">
-		<ul>
-			<li><a href="#tabs-1">Controls</a></li>
-			<li><a href="#tabs-2">How to play</a></li>
-		</ul>
-		<div id="tabs-1">
-			<p style="text-align: center;">
-				Hit Spacebar to start/stop animation.
-			</p>
-			<p style="text-align: center;">
-				Use arrows keys or w, s, a, d to move character
-			</p>
-		</div>
-		<div id="tabs-2">
-			Shoot stuff, kill enemies, get points, win!
-		</div>
-	</div>
 
 	<div id="footer" class="container-fluid">
 	        <div>
