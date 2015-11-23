@@ -47,45 +47,47 @@
 			}
 		</style> 
 	</head>
+
 	<body>
 		<div id="includedContent"></div>
 		<div class="container" style="position: relative; margin-top: 180px;">
-		<!-- Trainer -->
-		<div class="row">
-			<div class="col-md-3" style="text-align: center;">
-				<a class="thumbnail" href=""><img src="icons/face.png" alt=""></a>
+			<div class="row">
+				<div class="col-md-3" style="text-align: center;">
+					<a class="thumbnail" href=""><img src="icons/face.png" alt=""></a>
+				</div>
+				<div class="col-md-3">
+					<dl>
+						<dt>Name</dt>
+						<dd>Billy Jay Bob</dd>
+					</dl>
+					<dl>
+					<dl>
+						<dt>Gamer Tag</dt>
+						<dd>asd</dd>
+					</dl>
+				</div>
+				<div class="col-md-3">
+					<dl>
+						<dt>Highest Score</dt>
+						<dd>9000</dd>
+					</dl>
+					<dl>
+						<dt>Email</dt>
+						<dd><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> bbob@example.com</dd>
+					</dl>
+				</div>
 			</div>
-			<div class="col-md-3">
-				<dl>
-					<dt>Name</dt>
-					<dd>Billy Jay Bob</dd>
+
+			<div class="row">
+				<dl class="col-md-6">
+					<dt style="text-align: center;"><h4>About</h4></dt>
+					<dl>I pwn Noobs</dl>
 				</dl>
-				<dl>
-				<dl>
-					<dt>Gamer Tag</dt>
-					<dd>asd</dd>
-				</dl>
-			</div>
-			<div class="col-md-3">
-				<dl>
-					<dt>Highest Score</dt>
-					<dd>9000</dd>
-				</dl>
-				<dl>
-					<dt>Email</dt>
-					<dd><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> bbob@example.com</dd>
+				<dl class="col-md-6">
+					<dt style="text-align: center;"><h4>Hobbies</h4></dt>
+					<dl>I like pwning noobs.</dl>
 				</dl>
 			</div>
-		</div>
-		<div class="row">
-			<dl class="col-md-6">
-				<dt style="text-align: center;"><h4>About</h4></dt>
-				<dl>I pwn Noobs</dl>
-			</dl>
-			<dl class="col-md-6">
-				<dt style="text-align: center;"><h4>Hobbies</h4></dt>
-				<dl>I like pwning noobs.</dl>
-			</dl>
 		</div>
 
 		<div class="row bottom">
@@ -103,21 +105,19 @@
 		  	</div>
 	  	</div>
 
-		<div class="row">
-			<div id="footer" class="container-fluid">
-		        <div>
-		            <div class="row">
-		                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">FAQ</a></div>
-		                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">About</a></div>
-		                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">Terms &amp; Privacy</a></div>
-		                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">Contact</a></div>
-		            </div>
-		            <br>
-		            <div class="row">
-		                Lone Survivor &copy; 2015 All Rights Reserved
-		            </div>
-		        </div>
-	   		</div>
+		<div id="footer" class="container-fluid">
+	        <div>
+	            <div class="row">
+	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">FAQ</a></div>
+	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">About</a></div>
+	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">Terms &amp; Privacy</a></div>
+	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">Contact</a></div>
+	            </div>
+	            <br>
+	            <div class="row">
+	                Lone Survivor &copy; 2015 All Rights Reserved
+	            </div>
+	        </div>
    		</div>
 
    		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -132,6 +132,6 @@
 		        slidesToScroll: 3
 		    });
 		    });
-		  </script>
+		</script>
 	</body>
 </html>
