@@ -16,11 +16,6 @@
 		<script> 
 		    $(function(){ $("#includedContent").load("navBar.html"); });
 	    </script>
-	    <style>
-	    	.demoHeaders {
-				margin-top: 2em;
-			}
-	    </style>
 	</head>
 	<body>
 	<div id="includedContent"></div>
@@ -29,7 +24,7 @@
     	Canvas unsupported on current browser.
     </canvas>
 
-	<div id="footer" class="container-fluid">
+	<div id="footer" class="container-fluid" style="margin-top: 25%;">
 	        <div>
 	            <div class="row">
 	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">FAQ</a></div>
@@ -49,19 +44,5 @@
     <script type="text/javascript" src="js/Player.js"></script>
     <script type="text/javascript" src="js/ObjectManager.js"></script>
     <script type="text/javascript" src="js/Main.js"></script>
-    <script src="jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
-	<script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
-    <script>
-    	$( "#slider" ).slider({
-			range: true,
-			values: [ 17, 67 ]
-		});
-
-		$( "#tabs" ).tabs();
-
-		$( "#progressbar" ).progressbar({
-			value: 50
-		});
-    </script>
 	</body>
 </html>
