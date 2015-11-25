@@ -5,6 +5,12 @@
 		die();
 	}
 ?>
+
+<?php
+	$path = "icons/face.png";
+	$path2 = "tests.png";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -16,8 +22,20 @@
 		<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
  		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
-		<script> 
-		    $(function(){ $("#includedContent").load("navBar.html"); });
+	    <script> 
+				$(init);
+		 		function init()
+		    	{
+		    	  $("#includedContent").load("navBar.html"); 
+		    	  $("#image-upload").submit(s);
+		    	}
+		    	
+		    	 function s(event, ui)
+		    	 {
+		    	 	event.preventDefault();
+		    	 	//window.alert("Clicked!");
+		    	 	document.getElementById("user-img").src = <?php print "\"$path2\"" ?>;
+		    	 }
 	    </script>
 	    <style>
 	    	.slick-arrow {
@@ -53,7 +71,13 @@
 		<div class="container" style="position: relative; margin-top: 180px;">
 			<div class="row">
 				<div class="col-md-3" style="text-align: center;">
-					<a class="thumbnail" href=""><img src="icons/face.png" alt=""></a>
+					<a class="thumbnail" href=""><img id="user-img" src=<?php echo $path ?> alt=""></a>
+					<span>
+							<form action='upload.php' method='POST' id="image-upload" enctype='multipart/form-data'>
+							<input type='file' name='userFile'>
+							<input type='submit' name='upload_btn' value='Upload'>
+							</form>
+					</span>
 				</div>
 				<div class="col-md-3">
 					<dl>
@@ -76,15 +100,13 @@
 						<dd><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> bbob@example.com</dd>
 					</dl>
 				</div>
-			</div>
 
-			<div class="row">
-				<dl class="col-md-6">
-					<dt style="text-align: center;"><h4>About</h4></dt>
+				<dl class="col-md-4">
+					<dt><h4>About</h4></dt>
 					<dl>I pwn Noobs</dl>
 				</dl>
-				<dl class="col-md-6">
-					<dt style="text-align: center;"><h4>Hobbies</h4></dt>
+				<dl class="col-md-4">
+					<dt><h4>Hobbies</h4></dt>
 					<dl>I like pwning noobs.</dl>
 				</dl>
 			</div>
