@@ -20,7 +20,7 @@
 	<body>
 	<div id="includedContent"></div>
 
-    <canvas id="canvas" width="900" height="300" style="border:1px solid #000000;">
+    <canvas id="canvas" width="800" height="600" style="border:1px solid #000000;">
     	Canvas unsupported on current browser.
     </canvas>
 
@@ -41,8 +41,14 @@
 	
 	<script type="text/javascript" src="js/Object.js"></script>
 	<script type="text/javascript" src="js/DrawableObject.js"></script>
+	<script type="text/javascript" src="js/ScrollingBackground.js"></script>
+    <script type="text/javascript" src="js/AnimationManager.js"></script>
     <script type="text/javascript" src="js/Player.js"></script>
-    <script type="text/javascript" src="js/ObjectManager.js"></script>
+    <script type="text/javascript" src="js/Level.js"></script>
     <script type="text/javascript" src="js/Main.js"></script>
+    <script type="text/javascript" src="js/ObjectManager.js"></script>
+	<script type="text/javascript" src="js/Rectangle.js"></script>
+	<script type="text/javascript" src="js/Pickup.js"></script>
+	<script type="text/javascript" src="js/Enemy.js"></script>
 	</body>
 </html>

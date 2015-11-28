@@ -1,128 +1,129 @@
 /**
 	Manages objects by loading and rendering them
 */
-function ObjectManager() {
-    this.objects = new Array();
-	
+function ObjectManager()
+{
+    this.Objects = new Array();
     this.lastFrame = new Date().getTime();
-	
+    
     this.deltaX = 0;
     this.deltaY = 0;
-	
+
     this.main = null;
-	
+    
     this.canvas = null;
     this.context = null;
-	
-	/**
-		Initializes objects
-	*/
-    this.InitObjectManager = function() {
+
+    this.InitObjectManager = function()
+    {
         objectManager = this;
 
-        // initialize keyboard input (key up/down)
-        document.onkeydown = function(event) {
+        document.onkeydown = function(key)
+        {
             event.preventDefault();
-            objectManager.keyDown(event);
+            objectManager.keyDown(key);
         }
-
-        document.onkeyup = function(event) {
-            objectManager.keyUp(event);
+        
+        document.onkeyup = function(key)
+        {
+            objectManager.keyUp(key);
         }
 
         this.canvas = document.getElementById('canvas');
         this.context = this.canvas.getContext('2d');
 
-        this.main = new Main().Initialise();
+        this.main = new Main().Initialise(this.canvas.width, this.canvas.height);
         
-        // Intervals to refresh the canvas to update game as it changes
-        setInterval(function() { 
-            objectManager.Draw(); 
-        }, frameTime);
+        setInterval(function(){objectManager.Draw();}, (1 / 30));
         
         return this;        
     }
-	
-	/**
-		Add objects to array
-	*/
-	this.AddObject = function(Object) {
-        this.objects.push(Object);
-        this.objects.sort(function(a,b) {
-            return a.z - b.z;
-        })
+    
+    this.AddObject = function(Object)
+    {
+        this.Objects.push(Object);
+        this.Objects.sort(function(a,b){return a.z - b.z;})
     };
-
-    /**
-		Remove objects when finished using them
-	*/
-    this.RemoveObject = function(Object) {
-        this.objects.removeObject(Object);
+    
+    this.RemoveObject = function(Object)
+    {
+        this.Objects.RemoveObject(Object);
     }
 
-    /**
-
-    */
-    this.keyDown = function(event) {
-        for (obj in this.objects) {
-            if (this.objects[obj].keyDown) {
-                this.objects[obj].keyDown(event);
+    this.keyDown = function(key)
+    {
+        for (obj in this.Objects)
+        {
+            if (this.Objects[obj].keyDown)
+            {
+                this.Objects[obj].keyDown(key);
             }
         }
     }
 
-    /**
-    */
-    this.keyUp = function(event) {
-        for (obj in this.objects) {
-            if (this.objects[obj].keyUp) {
-                this.objects[obj].keyUp(event);
+    this.keyUp = function(key)
+    {
+        for (obj in this.Objects)
+        {
+            if (this.Objects[obj].keyUp)
+            {
+                this.Objects[obj].keyUp(key);
             }
         }
     }
-
-    /**
-    	Draw objects to canvas
-    */
-    this.Draw = function () {
+    
+    this.Draw = function ()
+    {
         var frame = new Date().getTime();
-        var deltaTime = (frame - this.lastFrame) / 1000;
+        var deltaTime = (frame - this.lastFrame)/1000;
         this.lastFrame = frame;
-
-        // Clears canvas
+        
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        for (obj in this.objects) {
-            if (this.objects[obj].Update) {
-                this.objects[obj].Update(deltaTime, this.context);
+        for (obj in this.Objects)
+        {
+            if (this.Objects[obj].Update)
+            {
+                this.Objects[obj].Update(deltaTime, this.context, this.deltaX, this.deltaY);
             }
-
-            if (this.objects[obj].Draw) {
-                this.objects[obj].Draw(this.context, this.deltaX, this.deltaY);
+                
+            if (this.Objects[obj].Draw)
+            {
+                this.Objects[obj].Draw(deltaTime, this.context, this.deltaX, this.deltaY);
             }
-
         }
+        
+        this.context.font = "30px Arial";
+        this.context.fillText("Score: " + score, 15, 50);
+        this.context.fillText("Health: " + health, 625, 50);
 
-        this.context.drawImage(this.canvas, 0, 0);      
+        this.context.drawImage(this.canvas, 0, 0);
     };
 }
 
-
-Array.prototype.remove = function (a) {
-    var rest = this.slice(a + 1 || this.length);
+Array.prototype.Remove = function(a, b)
+{
+    var temp = this.slice((b || a) + 1 || this.length);
     
-    if(a >= 0)
+    if(a < 0)
+    {
+        this.length + a;
+    }
+    else
+    {
         this.length = a;
+    }
 
-    return this.push.apply(this, rest);
+    return this.push.apply(this, temp);
 };
 
-Array.prototype.removeObject = function (object) {
+Array.prototype.RemoveObject = function(object)
+{
     for (var i = 0; i < this.length; ++i)
     {
         if (this[i] === object)
         {
-            this.remove(i);
+            this.Remove(i);
             break;
         }
     }
