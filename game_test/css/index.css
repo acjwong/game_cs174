@@ -79,8 +79,8 @@ input[type=Submit]:hover {
     margin-top: 10%;
     bottom: 0;
     padding: 8px;
-    background-color: #efefef;
-    border-top: 1px solid #ff4524; 
+    background-color: #f6f6f6;
+    border-top: 1px solid #8a0707; 
     text-align: center;
     z-index: 1;
 }

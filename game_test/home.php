@@ -82,32 +82,48 @@
 				<div class="col-md-3">
 					<dl>
 						<dt>Name</dt>
-						<dd>Billy Jay Bob</dd>
+						<dd>Mike Phe</dd>
 					</dl>
 					<dl>
 					<dl>
 						<dt>Gamer Tag</dt>
-						<dd>asd</dd>
+						<dd>mip</dd>
 					</dl>
 				</div>
 				<div class="col-md-3">
 					<dl>
 						<dt>Highest Score</dt>
-						<dd>9000</dd>
+						<dd>700</dd>
 					</dl>
 					<dl>
 						<dt>Email</dt>
-						<dd><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> bbob@example.com</dd>
+						<dd><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> mip@example.com</dd>
 					</dl>
 				</div>
 
 				<dl class="col-md-4">
 					<dt><h4>About</h4></dt>
-					<dl>I pwn Noobs</dl>
+					<dl>
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+						aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+						in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+						eserunt mollit anim id est laborum."
+					</dl>
 				</dl>
 				<dl class="col-md-4">
 					<dt><h4>Hobbies</h4></dt>
-					<dl>I like pwning noobs.</dl>
+					<dl>
+						"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+						aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+						in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
+						eserunt mollit anim id est laborum."
+					</dl>
 				</dl>
 			</div>
 		</div>
@@ -118,12 +134,12 @@
 			    <div><a href="#"><h3>Bob Ross</h3></a></div>
 			    <div><a href="#"><h3>Ron Mak</h3></a></div>
 			    <div><a href="#"><h3>Bobby Flay</h3></a></div>
-			    <div><h3>Brandon</h3></div>
-			    <div><h3>Brian</h3></div>
-			    <div><h3>Alex</h3></div>
-			    <div><h3>Mike</h3></div>
-			    <div><h3>Jessica</h3></div>
-			    <div><h3>Sally</h3></div>
+			    <div><a href="#"><h3>Brandon</h3></a></div>
+			    <div><a href="#"><h3>Brian</h3></a></div>
+			    <div><a href="#"><h3>Alex</h3></a></div>
+			    <div><a href="#"><h3>Mike</h3></a></div>
+			    <div><a href="#"><h3>Jessica</h3></a></div>
+			    <div><a href="#"><h3>Sally</h3></a></div>
 		  	</div>
 	  	</div>
 
