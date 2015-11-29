@@ -52,6 +52,8 @@ function Main()
 {
     this.Initialise = function(width, height)
     {
+    	var audio = new Audio('audio/bg-music.mp3');
+		audio.play();
         this.forest = new ScrollingBackground().InitScrollingBackground(forest, 0, 0, 4, 800, 600, 0.9);
 		this.mountain = new ScrollingBackground().InitScrollingBackground(mountain, 0, 0, 3, 800, 600, 0.75);
         this.cloud = new ScrollingBackground().InitScrollingBackground(cloud, 0, 0, 2, 800, 600, 0.5);

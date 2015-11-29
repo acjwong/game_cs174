@@ -17,7 +17,7 @@ function Pickup()
 	{
 		if(this.BoundingBox().Intersects(player.BoundingBox()))
 		{
-			effect.play();
+			//effect.play();
 			this.DisposePickup();
 			score++;
 		}

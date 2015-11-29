@@ -4,7 +4,7 @@
 
 function Enemy()
 {
-	this.velocity = 30;
+	this.velocity = 50;
 
 	this.InitEnemy = function(texture, x, y, z, frameCount, frameRate)
 	{
@@ -25,7 +25,7 @@ function Enemy()
 		if(this.BoundingBox().Intersects(player.BoundingBox()))
 		{
 			this.DisposeEnemy();
-			health -= 14;
+			health -= 15;
 		}
 	}
 }

@@ -22,10 +22,14 @@ function Level()
 			this.pickup[i] = 'Berry';
 		}
 		
-		this.enemy['10'] = 'Enemy';
+		//this.enemy['10'] = 'Enemy';
 		
         this.AddTile(width, height);
 		this.AddPickup(width, height);
+		//this.AddEnemy(width, height);
+		for(var i = 0; i < 5; i++) {
+			this.enemy[i] = 'Enemy';
+		}
 		this.AddEnemy(width, height);
 
         return this;
@@ -70,7 +74,7 @@ function Level()
 				
 				if(this.enemy[i] == 'Enemy')
 				{
-					new Enemy().InitEnemy(enemy_left, x - enemy_left.width / 2, y - enemy_left.height, 7, 4, 4);
+					new Enemy().InitEnemy(enemy_left, x+700+(300*i) - enemy_left.width / 2, y - enemy_left.height, 7, 4, 4);
 				}
 			}
 		}

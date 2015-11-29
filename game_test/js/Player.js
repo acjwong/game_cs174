@@ -8,11 +8,11 @@ function Player()
     this.left = false;
     this.right = false;
     
-    this.maxJump = 64;
+    this.maxJump = 100;
     this.jumpTime = 1;
     this.jumpVelocity = ((Math.PI / 2) / this.jumpTime);
     this.position = 0;
-    this.terminalVelocity = 9.8;
+    this.terminalVelocity = 5;
     this.IsOnGround = true;
     
     this.level = null;
