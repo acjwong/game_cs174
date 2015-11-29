@@ -52,9 +52,9 @@ function Main()
 {
     this.Initialise = function(width, height)
     {
-        this.forest = new ScrollingBackground().InitScrollingBackground(forest, 0, 0, 4, 800, 600, 0.9);
-		this.mountain = new ScrollingBackground().InitScrollingBackground(mountain, 0, 0, 3, 800, 600, 0.75);
-        this.cloud = new ScrollingBackground().InitScrollingBackground(cloud, 0, 0, 2, 800, 600, 0.5);
+        //this.forest = new ScrollingBackground().InitScrollingBackground(forest, 0, 0, 4, 800, 600, 0.9);
+		//this.mountain = new ScrollingBackground().InitScrollingBackground(mountain, 0, 0, 3, 800, 600, 0.75);
+        //this.cloud = new ScrollingBackground().InitScrollingBackground(cloud, 0, 0, 2, 800, 600, 0.5);
 		this.sky = new ScrollingBackground().InitScrollingBackground(sky, 0, 0, 1, 800, 600, 0.5);
 		this.level = new Level().InitLevel(width, height);
 		player = new Player().InitPlayer(this.level);

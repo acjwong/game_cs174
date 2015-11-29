@@ -20,7 +20,7 @@
 	<body>
 	<div id="includedContent"></div>
 
-    <canvas id="canvas" width="800" height="600" style="border:1px solid #000000;">
+    <canvas id="canvas" width="800" height="400" style="border:1px solid #000000;">
     	Canvas unsupported on current browser.
     </canvas>
 
