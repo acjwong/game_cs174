@@ -92,16 +92,33 @@ function ObjectManager() {
         // Clears canvas
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-        for (obj in this.objects) {
-            if (this.objects[obj].Update) {
-                this.objects[obj].Update(deltaTime, this.context);
-            }
+		//score and health display
+		this.context.font = "18px Arial";
+		this.context.fillText("Score: "+score, 700, 20);
+		this.context.fillText("Player HP: "+health, 350, 20);
+		this.context.fillText("BASE HP: "+baseHealth, 20, 20);
+		
+		if(baseHealth <= 0){
+			this.context.font = "50px Arial";
+			this.context.fillText("YOUR BASE HAS FALLEN", 175, 100);
+			this.context.fillText("GAME OVER", 280, 200);
+		}else if (health <= 0){
+			if(health < 0){ health = 0;}
+			this.context.font = "50px Arial";
+			this.context.fillText("YOUR WERE DEFEATED", 175, 100);
+			this.context.fillText("GAME OVER", 280, 200);
+		} else {
+		    for (obj in this.objects) {
+		        if (this.objects[obj].Update) {
+		            this.objects[obj].Update(deltaTime, this.context);
+		        }
 
-            if (this.objects[obj].Draw) {
-                this.objects[obj].Draw(this.context, this.deltaX, this.deltaY);
-            }
+		        if (this.objects[obj].Draw) {
+		            this.objects[obj].Draw(this.context, this.deltaX, this.deltaY);
+		        }
 
-        }
+		    }
+		}
 
         this.context.drawImage(this.canvas, 0, 0);      
     };
