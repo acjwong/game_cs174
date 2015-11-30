@@ -21,6 +21,9 @@ player_idle.src = "sprites/character-idle.png";
 var enemy_idle = new Image();
 enemy_idle.src = "sprites/zombie-idle.png";
 
+var bg = new Image();
+bg.src = "images/BG.png";
+
 var enemyArray = [];
 var d = new Date();
 
@@ -36,6 +39,9 @@ window.onload = function() {
 */
 function Main() {
 	this.Initialise = function() {
+		var audio = new Audio('audio/bg-music.mp3');
+		audio.play();
+		//this.bg = new ScrollingBackground().InitScrollingBackground(bg, 0, 0, 1, 800, 600, 0.5);
 		this.player = new Player().InitPlayer(player_idle, 0, 0, 0, 1, null);
 		this.enemy = new Player().InitPlayer(enemy_idle, 5, 1, 0, 0, this.player);
 		this.enemy1 = new Player().InitPlayer(enemy_idle, 8, 2, 0, 0, this.player);

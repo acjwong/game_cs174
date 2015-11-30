@@ -48,7 +48,7 @@ function ScrollingBackground() {
 		else
 			height = this.texture.height - top;
         
-        canvas.drawImage(this.texture, left, top, width, height, position[0], position[1], width, height);
+        this.context.drawImage(this.texture, left, top, width, height, position[0], position[1], width, height);
         return [width, height];
     }
 

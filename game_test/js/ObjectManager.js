@@ -1,6 +1,10 @@
 /**
     Manages objects by loading and rendering them
 */
+
+var bg = new Image();
+bg.src = "images/BG.png";
+
 function ObjectManager() {
     this.objects = new Array();
     
@@ -119,8 +123,9 @@ function ObjectManager() {
 
             }
         }
-
-        this.context.drawImage(this.canvas, 0, 0);      
+        /* BACKGROUND CODE TODO */
+        this.context.globalCompositeOperation='destination-over';
+        this.context.drawImage(bg, 0, 0);      
     };
 }
 
