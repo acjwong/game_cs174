@@ -19,7 +19,7 @@ function Pickup()
 		{
 			//effect.play();
 			this.DisposePickup();
-			score++;
+			score += 50;
 		}
 	}
 }
