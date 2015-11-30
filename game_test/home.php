@@ -7,6 +7,50 @@
 ?>
 
 <?php
+	include "class_players.php";
+	$connection = new PDO("mysql:host=localhost;dbname=bruteforce", "bruteforce", "password");
+	$connection->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+	$tag = $_COOKIE['gamertag'];
+  	$query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Scores.Score, email
+              FROM Players join Scores
+              WHERE Players.idPlayers = Scores.idPlayer
+              AND Players.gamerTag = \"$tag\"
+              ORDER BY Score DESC
+              LIMIT 1;";
+
+    $ps = $connection->prepare($query);
+    $ps->execute();
+    $ps->setFetchMode(PDO::FETCH_CLASS, "Players");
+    
+    
+    while ($players = $ps->fetch()) { 
+		$first = $players->getFirst();
+      	$last = $players->getLast();
+      	$gameTag = $players->getGamerTag();
+      	$score = $players->getScore();
+      	$email = $players->getEmail();
+    }
+
+    if($first == "") {
+    	$tag = $_COOKIE['gamertag'];
+	  	$query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', email
+	              FROM Players
+	              WHERE Players.gamerTag = \"$tag\"
+	              LIMIT 1;";
+
+	    $ps = $connection->prepare($query);
+	    $ps->execute();
+	    $ps->setFetchMode(PDO::FETCH_CLASS, "Players");
+	    
+	    
+	    while ($players = $ps->fetch()) { 
+			$first = $players->getFirst();
+	      	$last = $players->getLast();
+	      	$gameTag = $players->getGamerTag();
+	      	$score = 0;
+	      	$email = $players->getEmail();
+	    }
+    }
 	$path = "icons/face.png";
 	$path2 = "tests.png";
 ?>
@@ -82,22 +126,22 @@
 				<div class="col-md-3">
 					<dl>
 						<dt>Name</dt>
-						<dd>Mike Phe</dd>
+						<dd><?php echo $first . " " . $last?></dd>
 					</dl>
 					<dl>
 					<dl>
 						<dt>Gamer Tag</dt>
-						<dd>mip</dd>
+						<dd><?php echo $gameTag?></dd>
 					</dl>
 				</div>
 				<div class="col-md-3">
 					<dl>
 						<dt>Highest Score</dt>
-						<dd>700</dd>
+						<dd><?php echo $score ?></dd>
 					</dl>
 					<dl>
 						<dt>Email</dt>
-						<dd><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> mip@example.com</dd>
+						<dd><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><?php echo $email ?></dd>
 					</dl>
 				</div>
 

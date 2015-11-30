@@ -16,7 +16,7 @@ function DrawableObject() {
         this.texture = texture;
         return this;
     }
-	
+    
     /**
         Draws image on canvas
         @param deltaTime
@@ -24,7 +24,7 @@ function DrawableObject() {
         @deltaX change in x
         @deltaY change in y
     */
-	this.Draw = function(context, deltaX, deltaY) {
+    this.Draw = function(context, deltaX, deltaY) {
         context.drawImage(this.texture, this.x - deltaX, this.y - deltaY);
     }
 
