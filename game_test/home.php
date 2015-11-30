@@ -30,6 +30,27 @@
       	$score = $players->getScore();
       	$email = $players->getEmail();
     }
+
+    if($first == "") {
+    	$tag = $_COOKIE['gamertag'];
+	  	$query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', email
+	              FROM Players
+	              WHERE Players.gamerTag = \"$tag\"
+	              LIMIT 1;";
+
+	    $ps = $connection->prepare($query);
+	    $ps->execute();
+	    $ps->setFetchMode(PDO::FETCH_CLASS, "Players");
+	    
+	    
+	    while ($players = $ps->fetch()) { 
+			$first = $players->getFirst();
+	      	$last = $players->getLast();
+	      	$gameTag = $players->getGamerTag();
+	      	$score = 0;
+	      	$email = $players->getEmail();
+	    }
+    }
 	$path = "icons/face.png";
 	$path2 = "tests.png";
 ?>
