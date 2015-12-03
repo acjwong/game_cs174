@@ -4,6 +4,7 @@
 
 var bg = new Image();
 bg.src = "images/BG.png";
+var endGame = false;
 
 function ObjectManager() {
     this.objects = new Array();
@@ -39,11 +40,11 @@ function ObjectManager() {
 
         this.main = new Main().Initialise();
         
+
         // Intervals to refresh the canvas to update game as it changes
         setInterval(function() { 
             objectManager.Draw(); 
         }, frameTime);
-        
         return this;        
     }
     
@@ -106,11 +107,17 @@ function ObjectManager() {
             this.context.font = "50px Arial";
             this.context.fillText("YOUR BASE HAS FALLEN", 175, 100);
             this.context.fillText("GAME OVER", 280, 200);
+            if (endGame === false)
+                gameEnd();
+            endGame = true;
         }else if (health <= 0){
             if(health < 0){ health = 0;}
             this.context.font = "50px Arial";
             this.context.fillText("YOUR WERE DEFEATED", 175, 100);
             this.context.fillText("GAME OVER", 280, 200);
+            if (endGame === false)
+                gameEnd();
+            endGame = true;
         } else {
             for (obj in this.objects) {
                 if (this.objects[obj].Update) {
@@ -125,10 +132,23 @@ function ObjectManager() {
         }
         /* BACKGROUND CODE TODO */
         this.context.globalCompositeOperation='destination-over';
-        this.context.drawImage(bg, 0, 0);      
+        this.context.drawImage(bg, 0, 0);
     };
 }
 
+function gameEnd(){
+    var cookie = document.cookie.substring(9);
+    ajax.post('addScore.php', {'gamertag': cookie, 'score': score}, 
+        function(response){
+            response = response.replace(/\r\n|\n/, '');
+            if (response === 'true') {
+                window.location.href = 'highscores.php';
+            }
+            else {
+                window.location.href = 'game_screen.php';
+            }
+        }, true);
+}
 
 Array.prototype.remove = function (a) {
     var rest = this.slice(a + 1 || this.length);

@@ -13,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="css/nav-bar.css">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="comm.js"></script>
 		<script> 
 		    $(function(){ $("#includedContent").load("navBar.html"); });
 	    </script>
