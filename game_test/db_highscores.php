@@ -14,7 +14,7 @@ function run() {
     
     $gamertag = filter_input(INPUT_POST, "gamertag");
     
-    $query = "SELECT firstName AS First, lastName AS Last, gamerTag AS 'Tag', Score, Scores.timestamp as Date 
+    $query = "SELECT firstName AS 'First Name', lastName AS 'Last Name', gamerTag AS 'Gamer Tag', Score, Scores.timestamp as Date 
               FROM Players JOIN Scores";
     
     print "<table border='2'>\n";
@@ -26,10 +26,13 @@ function run() {
         print "<th>$field</th>\n";
     }
     print "</tr>\n";
-    if($gamertag != "")
+    if($gamertag != "") {
       executeUserHighScoresQuery($gamertag, $connection);
-    else
+    }
+    else {
       executeHighScoresQuery($connection);
+    }
+    lastGameQuery($gamertag, $connection);
     
   } catch (Exception $e) {
       echo 'ERROR: '.$e->getMessage();
@@ -37,17 +40,17 @@ function run() {
 }
 
 function executeUserHighScoresQuery($gamertag, $connection) {
-  $query = "SELECT firstName AS First, lastName AS Last, gamerTag AS 'Tag', Scores.Score, Scores.timestamp
-              FROM Players join Scores
-              WHERE Players.idPlayers = Scores.idPlayer
-              AND Players.gamerTag = :gamertag
-              ORDER BY Score DESC;";
-
+  $query = "SELECT firstName AS first, lastName AS last, gamerTag as Gamer_Tag, Score, Scores.timestamp
+            FROM Players join Scores
+            WHERE Players.idPlayers = Scores.idPlayer
+            AND Players.gamerTag = :gamertag
+            ORDER BY Scores.score DESC;";
     $ps = $connection->prepare($query);
     $ps->bindParam(':gamertag', $gamertag);
     $ps->execute();
     $ps->setFetchMode(PDO::FETCH_CLASS, "Players");
     
+
     
     while ($players = $ps->fetch()) { 
       print "        <tr>\n";
@@ -58,30 +61,23 @@ function executeUserHighScoresQuery($gamertag, $connection) {
       print "            <td>" . $players->getTimeStamp()     . "</td>\n";
     }
     print "        </tr>\n";
-
     print "    </table>\n";   
 }
 
 function executeHighScoresQuery($connection) {
-    $query = "SELECT firstName AS First, lastName AS Last, gamerTag AS 'Tag', Scores.Score, Scores.timestamp
+    $query = "SELECT firstName, lastName, gamerTag, Scores.Score, Scores.timestamp
               FROM Players join Scores
               WHERE Players.idPlayers = Scores.idPlayer
               ORDER BY Score DESC
               LIMIT 10;";
   
-    $lastGameScoreQuery = "SELECT Scores.score, date_format(`timestamp`, '%Y/%m/%d at %H:%i') as Date
-                           FROM Players join Scores
-                           WHERE Players.idPlayers = Scores.idPlayer
-                           ORDER BY timestamp DESC
-                           LIMIT 1;";
+    
 
     $ps = $connection->prepare($query);
     $ps->execute();
     $data = $ps->fetchAll(PDO::FETCH_ASSOC);
     
-    $ps = $connection->prepare($lastGameScoreQuery);
-    $ps->execute();
-    $currentGameData = $ps->fetchAll(PDO::FETCH_ASSOC);
+    
 
     foreach ($data as $row) {
         print "<tr>\n";
@@ -92,8 +88,21 @@ function executeHighScoresQuery($connection) {
     }
     print "</table>\n";
 
-    print "<table>\n";    
-    print "<th>Your Score</th>\n";
+    
+}
+
+function lastGameQuery($gamertag, $connection) {
+    $lastGameScoreQuery = "SELECT Scores.score, date_format(`timestamp`, '%Y/%m/%d at %H:%i') as Date
+                           FROM Players join Scores
+                           WHERE Players.idPlayers = Scores.idPlayer
+                           ORDER BY timestamp DESC
+                           LIMIT 1;";
+    $ps = $connection->prepare($lastGameScoreQuery);
+    $ps->execute();
+    $currentGameData = $ps->fetchAll(PDO::FETCH_ASSOC);
+
+    print "<table>\n";
+    print "<th>Last Played Game Score</th>\n";
     print "<th>Date</th>\n";
     foreach ($currentGameData as $scorerow) {
         print "<tr>\n";
