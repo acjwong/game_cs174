@@ -7,6 +7,7 @@
 		private $Score;
 		private $email;
 		private $password;
+		private $timestamp;
 		//private $imageFile;
 
 		public function getId() {return $this->id;}
@@ -16,6 +17,7 @@
 		public function getScore() {return $this->Score;}
 		public function getEmail() {return $this->email;}
 		public function getPassword() {return $this->password;}
+		public function getTimeStamp() {return $this->timestamp;}
 		//public function getImage() {return $this->imageFile;}
 
 		public function setId($newID) {$this->id=$newID;}

@@ -14,7 +14,8 @@ function run() {
     
     $gamertag = filter_input(INPUT_POST, "gamertag");
     
-    $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Score FROM Players JOIN Scores";
+    $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Score, Scores.timestamp as Date 
+              FROM Players JOIN Scores";
     
     print "<table border='2'>\n";
     $result = $connection->query($query);
@@ -36,12 +37,11 @@ function run() {
 }
 
 function executeUserHighScoresQuery($gamertag, $connection) {
-  $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Scores.Score
+  $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Scores.Score, Scores.timestamp
               FROM Players join Scores
               WHERE Players.idPlayers = Scores.idPlayer
               AND Players.gamerTag = :gamertag
-              ORDER BY Score DESC
-              LIMIT 10;";
+              ORDER BY Score DESC;";
 
     $ps = $connection->prepare($query);
     $ps->bindParam(':gamertag', $gamertag);
@@ -55,6 +55,7 @@ function executeUserHighScoresQuery($gamertag, $connection) {
       print "            <td>" . $players->getLast()     . "</td>\n";
       print "            <td>" . $players->getGamerTag()     . "</td>\n";
       print "            <td>" . $players->getScore()     . "</td>\n";
+      print "            <td>" . $players->getTimeStamp()     . "</td>\n";
     }
     print "        </tr>\n";
 
@@ -62,7 +63,7 @@ function executeUserHighScoresQuery($gamertag, $connection) {
 }
 
 function executeHighScoresQuery($connection) {
-  $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Scores.Score
+  $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Scores.Score, Scores.timestamp
               FROM Players join Scores
               WHERE Players.idPlayers = Scores.idPlayer
               ORDER BY Score DESC
