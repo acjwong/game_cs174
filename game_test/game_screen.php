@@ -15,7 +15,10 @@
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="comm.js"></script>
 		<script> 
-		    $(function(){ $("#includedContent").load("navBar.html"); });
+		    $(function(){ 
+		    	$("#includedContent").load("navBar.html"); 
+		    	$("#footer").load("footer.html");
+		    });
 	    </script>
 	</head>
 	<body>
@@ -25,20 +28,7 @@
     	Canvas unsupported on current browser.
     </canvas>
 
-	<div id="footer" class="container-fluid" style="margin-top: 25%;">
-	        <div>
-	            <div class="row">
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">FAQ</a></div>
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">About</a></div>
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">Terms &amp; Privacy</a></div>
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">Contact</a></div>
-	            </div>
-	            <br>
-	            <div class="row">
-	                Lone Survivor &copy; 2015 All Rights Reserved
-	            </div>
-	        </div>
-   	</div>
+	<div id="footer" class="container-fluid" style="margin-top: 25%;"></div>
 	
 	<script type="text/javascript" src="js/Object.js"></script>
 	<script type="text/javascript" src="js/DrawableObject.js"></script>

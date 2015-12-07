@@ -9,6 +9,11 @@
   		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="comm.js"></script>
+		<script> 
+		    $(function(){ 
+		    	$("#footer").load("footer.html");
+		    });
+	    </script>
 	</head>
 	<body>
 		<div class="header">
@@ -45,20 +50,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="footer" class="container-fluid">
-	        <div>
-	            <div class="row">
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">FAQ</a></div>
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">About</a></div>
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">Terms &amp; Privacy</a></div>
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">Contact</a></div>
-	            </div>
-	            <br>
-	            <div class="row">
-	                Lone Survivor &copy; 2015 All Rights Reserved
-	            </div>
-	        </div>
-   		</div>
+		<div id="footer" class="container-fluid"></div>
 		<script>
 			function validate(form) {
 

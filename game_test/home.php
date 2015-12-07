@@ -71,6 +71,7 @@
 		 		function init()
 		    	{
 		    	  $("#includedContent").load("navBar.html"); 
+		    	  $("#footer").load("footer.html");
 		    	  $("#image-upload").submit(s);
 		    	}
 		    	
@@ -187,20 +188,7 @@
 		  	</div>
 	  	</div>
 
-		<div id="footer" class="container-fluid">
-	        <div>
-	            <div class="row">
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">FAQ</a></div>
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">About</a></div>
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">Terms &amp; Privacy</a></div>
-	                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><a href="#">Contact</a></div>
-	            </div>
-	            <br>
-	            <div class="row">
-	                Lone Survivor &copy; 2015 All Rights Reserved
-	            </div>
-	        </div>
-   		</div>
+		<div id="footer"></div>
 
    		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   		<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
