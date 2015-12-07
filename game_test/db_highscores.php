@@ -14,7 +14,7 @@ function run() {
     
     $gamertag = filter_input(INPUT_POST, "gamertag");
     
-    $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Score, Scores.timestamp as Date 
+    $query = "SELECT firstName AS First, lastName AS Last, gamerTag AS 'Tag', Score, Scores.timestamp as Date 
               FROM Players JOIN Scores";
     
     print "<table border='2'>\n";
@@ -37,7 +37,7 @@ function run() {
 }
 
 function executeUserHighScoresQuery($gamertag, $connection) {
-  $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Scores.Score, Scores.timestamp
+  $query = "SELECT firstName AS First, lastName AS Last, gamerTag AS 'Tag', Scores.Score, Scores.timestamp
               FROM Players join Scores
               WHERE Players.idPlayers = Scores.idPlayer
               AND Players.gamerTag = :gamertag
@@ -63,19 +63,41 @@ function executeUserHighScoresQuery($gamertag, $connection) {
 }
 
 function executeHighScoresQuery($connection) {
-  $query = "SELECT firstName AS first, lastName AS last, gamerTag AS 'Gamer_Tag', Scores.Score, Scores.timestamp
+    $query = "SELECT firstName AS First, lastName AS Last, gamerTag AS 'Tag', Scores.Score, Scores.timestamp
               FROM Players join Scores
               WHERE Players.idPlayers = Scores.idPlayer
               ORDER BY Score DESC
               LIMIT 10;";
+  
+    $lastGameScoreQuery = "SELECT Scores.score, date_format(`timestamp`, '%Y/%m/%d at %H:%i') as Date
+                           FROM Players join Scores
+                           WHERE Players.idPlayers = Scores.idPlayer
+                           ORDER BY timestamp DESC
+                           LIMIT 1;";
 
     $ps = $connection->prepare($query);
     $ps->execute();
-    
     $data = $ps->fetchAll(PDO::FETCH_ASSOC);
+    
+    $ps = $connection->prepare($lastGameScoreQuery);
+    $ps->execute();
+    $currentGameData = $ps->fetchAll(PDO::FETCH_ASSOC);
+
     foreach ($data as $row) {
         print "<tr>\n";
         foreach ($row as $name => $value) {
+            print "<td>$value</td>\n";
+        }
+        print "</tr>\n";
+    }
+    print "</table>\n";
+
+    print "<table>\n";    
+    print "<th>Your Score</th>\n";
+    print "<th>Date</th>\n";
+    foreach ($currentGameData as $scorerow) {
+        print "<tr>\n";
+        foreach ($scorerow as $name => $value) {
             print "<td>$value</td>\n";
         }
         print "</tr>\n";
