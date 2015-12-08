@@ -9,10 +9,11 @@ function Player() {
     this.right = false;
     this.space = false;
     this.boxMaxHor = 5;//horizontal and vertical components of the player's cage. given in boxes.
-    this.boxMaxVer = 4;
+    this.boxMaxVer = 3;
     this.boxWidth = 50;
-    this.boxOriginX = 25;//top left corner of the player's cage
-    this.boxOriginY = 25;
+    this.boxHeight = 20;
+    this.boxOriginX = 10;//top left corner of the player's cage
+    this.boxOriginY = 100;
     this.boxMaxHorX = this.boxOriginX+(this.boxMaxHor*this.boxWidth);
     this.boxMaxVerY = this.boxOriginY+(this.boxMaxVer*this.boxWidth);
     this.isPlayerFlag = false;
@@ -23,6 +24,7 @@ function Player() {
     this.spaceCount = 0;
     this.spaceCountMax= 10;
     this.easiness = 1.5; //higher is easier
+
     /**
         Initializes the player through DrawableObject
     */
@@ -30,10 +32,10 @@ function Player() {
         this.player = player;
         this.isPlayerFlag = isPlayerFlag;
         if(isPlayerFlag){       
-            this.InitDrawableObject(texture, this.boxOriginX+xOp*this.boxWidth, this.boxOriginY+yOp*this.boxWidth, z);//we've changed the x and y to now depend on the box.
+            this.InitDrawableObject(texture, this.boxOriginX+xOp*this.boxWidth, yOp*this.boxWidth, z);//we've changed the x and y to now depend on the box.
             this.weapon.InitDrawableObject(this.weaponTexture, this.x+30, this.y+20, 0);    
         } else { //if enemy
-            this.InitDrawableObject(texture, 700+xOp*this.boxWidth*this.easiness, this.boxOriginY+yOp*this.boxWidth, z);
+            this.InitDrawableObject(texture, 700+xOp*this.boxWidth*this.easiness, yOp*this.boxWidth, z);
             this.velocity = 120+xOp*1.2;
         }
         return this;

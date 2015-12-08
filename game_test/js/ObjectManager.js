@@ -136,6 +136,11 @@ function ObjectManager() {
     };
 }
 
+function getTheEnd()
+{
+    return endGame;
+}
+
 function gameEnd(){
     var cookie = document.cookie.substring(9);
     ajax.post('addScore.php', {'gamertag': cookie, 'score': score}, 
