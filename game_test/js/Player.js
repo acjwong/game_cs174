@@ -20,7 +20,7 @@ function Player() {
     this.weaponTexture = new Image();
     this.weaponTexture.src = "sprites/fire.png";
     this.weapon = new DrawableObject;
-    this.weaponRange = 125;
+    this.weaponRange = 200;
     this.spaceCount = 0;
     this.spaceCountMax= 10;
     this.easiness = 1.5; //higher is easier
